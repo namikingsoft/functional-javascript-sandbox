@@ -1,0 +1,16 @@
+{
+  "presets": [
+    "es2015",
+    "es2016",
+    "react",
+  ],
+  "plugins": [
+    ["babel-plugin-espower", { "embedAst": true }],
+    "syntax-trailing-function-commas",
+    "transform-async-to-generator",
+    "transform-class-properties",
+    "transform-flow-strip-types",
+    "transform-object-rest-spread",
+    "transform-runtime",
+  ],
+}
