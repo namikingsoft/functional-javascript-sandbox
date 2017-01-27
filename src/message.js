@@ -18,5 +18,5 @@ export const splitBreak:
 export const validateLength:
   MaxLength => Message => Promise<Message>
 = maxLength => message => new Promise((resolve, reject) => (
-  maxLength < message.length ? reject('error') : resolve(message)
+  maxLength < message.length ? reject('many text error') : resolve(message)
 ));
