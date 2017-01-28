@@ -11,16 +11,29 @@ import type { Message, ConsoleString } from 'type';
 const execute:
   Message => Promise<ConsoleString>
 = pipe(
+  // Message => Message
   toHankakuIfMoreThan10,
+  // Message => Message
   splitBreak(20),
+  // Message => Promise<Message>
   validateLength(100),
+  // Promise<Message> => Promise<SlackAPIResult>
   chain(pipe(
+    // Message => SlackPostMessage
     createSlackPostMessage(slackPostChannel),
+    // SlackPostMessage => Promise<SlackAPIResult>
     postMessage(slackAPIToken),
   )),
-  chain(saveResult(mongoDBUrl)),
+  // Promise<SlackAPIResult> => Promise<SlackAPIResult>
+  chain(
+    // SlackAPIResult => Promise<SlackAPIResult>
+    saveResult(mongoDBUrl),
+  ),
+  // Promise<SlackAPIResult> => Promise<ConsoleString>
   chain(pipe(
+    // SlackAPIResult => ConsoleString
     toStringFromResult,
+    // ConsoleString => Promise<ConsoleString>
     returnPromise,
   )),
 );
