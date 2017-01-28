@@ -38,7 +38,7 @@ describe('Message', () => {
         await validateLength(3)('test');
         assert(false);
       } catch (e) {
-        assert(e === 'error');
+        assert(e === 'many text error');
       }
     });
   });
