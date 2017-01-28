@@ -7,7 +7,7 @@
     "type": "flow",
     "lint": "eslint src test",
     "spec": "NODE_PATH=src mocha test/**/*.spec.js",
-    "start": "NODE_PATH=src babel-node src/index.js",
+    "start": "babel-node src/index.js",
     "test": "npm run type && npm run lint && npm run spec",
     "test:watch": "npm run spec -- --watch"
   },

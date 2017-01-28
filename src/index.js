@@ -1,12 +1,12 @@
 // @flow
 import { pipe, chain } from 'ramda';
-import { toHankakuIfMoreThan10, splitBreak, validateLength } from 'message';
-import { createSlackPostMessage } from 'factory';
-import { postMessage, toStringFromResult } from 'slack';
-import { saveResult } from 'repository';
-import { returnPromise, success, failed, getStdin } from 'system';
-import { slackAPIToken, slackPostChannel, mongoDBUrl } from 'env';
-import type { Message, ConsoleString } from 'type';
+import { toHankakuIfMoreThan10, splitBreak, validateLength } from './message';
+import { createSlackPostMessage } from './factory';
+import { postMessage, toStringFromResult } from './slack';
+import { saveResult } from './repository';
+import { returnPromise, success, failed, getStdin } from './system';
+import { slackAPIToken, slackPostChannel, mongoDBUrl } from './env';
+import type { Message, ConsoleString } from './type';
 
 const execute:
   Message => Promise<ConsoleString>
